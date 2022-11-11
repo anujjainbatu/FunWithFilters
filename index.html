@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fun with Filter</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <script src="filters.js"></script>
+        <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js" >
+        </script>
+        <header>
+            
+            <img src="logo.png" alt="logo" href="#" class="logo" width="50" height="50">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/anujjainbatu/" class="active">@anujjainbatu</a></li>
+            </ul>
+        </header>
+        <section>
+            <img src="stars.png" id="stars">
+            <img src="moon.png" id="moon">
+            <img src="mountains_behind.png" id="mountains_behind">
+            <h2 id="text">for Filters</h2>
+            <a href="#sec" id="btn">Let's Go</a>
+            <img src="mountains_front.png" id="mountains_front">
+        </section>
+        <div class="sec" id="sec">
+            <h2>Fun with Filters</h2>
+            <div class="left">
+            <canvas id="can">
+            </canvas>
+            </div>
+            <div class="right">
+            <h3>Upload Image</h3>
+            <p><input type="file" id="inputfile" onchange="loadImage()" multiple="false" accept="image/*"><p>
+            <p>Here you can upload your image & try out some image filters created using basic JavaScript.</p>
+            </div>
+            <div class="down">
+            <h2>Choose Filter</h2>
+            <p><input type="button" id="gry" value="GrayScale" onclick="makeGray()">
+                <input type="button" id="blr" value="Blur" onclick="makeBlur()">
+                <input type="button" id="rd" value="Red" onclick="makeRed()">
+              <input type="button" id="rdh" value="Red Hue" onclick="makeRDH()">
+            
+            <input type="button" id="reset"  value="Reset" onclick="doReset()">
+            </p>
+            <p><b>Pride Filter :</b>
+            <input type="button" id="pride"  value="Apply" onclick="makePride()">
+            </p>
+        </div>
+        </div>
+
+        <script>
+            let stars = document.getElementById('stars');
+            let moon = document.getElementById('moon');
+            let mountains_behind = document.getElementById('mountains_behind');
+            let mountains_front = document.getElementById('mountains_front');
+            let text = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let header = document.querySelector('header');
+
+            window.addEventListener('scroll',function() {
+                let value = window.scrollY;
+                stars.style.left = value*0.25 + 'px';
+                moon.style.top = value*1.05 + 'px';
+                mountains_behind.top = value*0.5 + 'px';
+                mountains_front.top = value*0 + 'px';
+                text.style.marginRight = value*4 + 'px';
+                
+                btn.style.marginTop = value*1.5 + 'px';
+                header.style.top = value*0.5 + 'px';
+            })
+        </script>
+    </body>
+</html>
